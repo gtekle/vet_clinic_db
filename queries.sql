@@ -152,9 +152,9 @@ ON a.owners_id = o.id
 WHERE o.full_name like 'Dean Winchester' AND a.escape_attempts <= 0;
 
 -- Who owns the most animals?
-SELECT MAX(number_of_animals_per_person) FROM (
-  SELECT o.full_name AS owner_full_name, COUNT(*) AS number_of_animals_per_person FROM owners o 
-  JOIN animals a
-  ON a.owners_id = o.id
-  GROUP BY owner_full_name
-) AS animals_by_person;
+SELECT o.full_name AS owner_full_name, COUNT(*) AS animals_owned FROM owners o 
+JOIN animals a
+ON a.owners_id = o.id
+GROUP BY owner_full_name
+ORDER BY animals_owned DESC
+LIMIT (1);
