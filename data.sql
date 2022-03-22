@@ -42,3 +42,15 @@ INSERT INTO species(name)
     VALUES ('Pokemon');
 INSERT INTO species(name)
     VALUES ('Digimon');
+
+-- Modify your inserted animals so it includes the species_id value: 
+UPDATE animals SET species_id=2 where name LIKE '%mon';
+UPDATE animals SET species_id=1 where name NOT LIKE '%mon';
+
+-- Modify your inserted animals to include owner information (owner_id): 
+UPDATE animals SET owners_id=(SELECT id from owners where name like 'Jodie Whittake')
+WHERE name='Agumon';
+UPDATE animals SET owners_id=2 where name IN ('Gabumon', 'Pikachu');
+UPDATE animals SET owners_id=3 where name IN ('Devimon', 'Plantmon');
+UPDATE animals SET owners_id=4 where name IN ('Charmander', 'Squirtle', 'Blossom');
+UPDATE animals SET owners_id=5 where name IN ('Angemon', 'Boarmon');
