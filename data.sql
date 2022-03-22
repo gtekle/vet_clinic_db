@@ -34,9 +34,9 @@ INSERT INTO owners(full_name, age)
 INSERT INTO owners(full_name, age)
     VALUES ('Melody Pond', 77);
 INSERT INTO owners(full_name, age)
-    VALUES ('Dean Wincheste', 14);
+    VALUES ('Dean Winchester', 14);
 INSERT INTO owners(full_name, age)
-    VALUES ('Jodie Whittake', 38);
+    VALUES ('Jodie Whittaker', 38);
 
 INSERT INTO species(name)
     VALUES ('Pokemon');
@@ -48,9 +48,12 @@ UPDATE animals SET species_id=2 where name LIKE '%mon';
 UPDATE animals SET species_id=1 where name NOT LIKE '%mon';
 
 -- Modify your inserted animals to include owner information (owner_id): 
-UPDATE animals SET owners_id=(SELECT id from owners where name like 'Jodie Whittake')
-WHERE name='Agumon';
+UPDATE animals SET owners_id=1 WHERE name='Agumon';
 UPDATE animals SET owners_id=2 where name IN ('Gabumon', 'Pikachu');
 UPDATE animals SET owners_id=3 where name IN ('Devimon', 'Plantmon');
 UPDATE animals SET owners_id=4 where name IN ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals SET owners_id=5 where name IN ('Angemon', 'Boarmon');
+
+-- Update owners names with typo in Local DB
+UPDATE owners SET full_name='Dean Winchester' WHERE full_name like 'Dean Wincheste';
+UPDATE owners SET full_name='Jodie Whittaker' WHERE full_name like 'Jodie Whittake';
