@@ -37,3 +37,8 @@ INSERT INTO owners(full_name, age)
     VALUES ('Dean Wincheste', 14);
 INSERT INTO owners(full_name, age)
     VALUES ('Jodie Whittake', 38);
+
+INSERT INTO species(name)
+    VALUES ('Pokemon');
+INSERT INTO species(name)
+    VALUES ('Digimon');
